@@ -227,34 +227,34 @@ fn run_single_threaded(bencher: Bencher, benchmark: &Benchmark) {
         });
 }
 
-#[bench(args=[&*ALTAIR, &*FREQTRADE, &*PYDANTIC, &*TANJUN], sample_size=2, sample_count=3)]
+#[bench(args=[&*ALTAIR], sample_size=1, sample_count=1)]
 fn small(bencher: Bencher, benchmark: &Benchmark) {
     run_single_threaded(bencher, benchmark);
 }
 
-#[bench(args=[&*COLOUR_SCIENCE, &*PANDAS], sample_size=1, sample_count=3)]
-fn medium(bencher: Bencher, benchmark: &Benchmark) {
-    run_single_threaded(bencher, benchmark);
-}
+// #[bench(args=[&*COLOUR_SCIENCE, &*PANDAS], sample_size=1, sample_count=3)]
+// fn medium(bencher: Bencher, benchmark: &Benchmark) {
+//     run_single_threaded(bencher, benchmark);
+// }
 
-#[bench(args=[&*SYMPY], sample_size=1, sample_count=2)]
-fn large(bencher: Bencher, benchmark: &Benchmark) {
-    run_single_threaded(bencher, benchmark);
-}
+// #[bench(args=[&*SYMPY], sample_size=1, sample_count=2)]
+// fn large(bencher: Bencher, benchmark: &Benchmark) {
+//     run_single_threaded(bencher, benchmark);
+// }
 
-#[bench(args=[&*PYDANTIC], sample_size=3, sample_count=3)]
-fn multithreaded(bencher: Bencher, benchmark: &Benchmark) {
-    let thread_pool = ThreadPoolBuilder::new().build().unwrap();
+// #[bench(args=[&*PYDANTIC], sample_size=3, sample_count=3)]
+// fn multithreaded(bencher: Bencher, benchmark: &Benchmark) {
+//     let thread_pool = ThreadPoolBuilder::new().build().unwrap();
 
-    bencher
-        .with_inputs(|| benchmark.setup_iteration())
-        .bench_local_values(|db| {
-            thread_pool.install(|| {
-                check_project(&db, benchmark.max_diagnostics);
-                db
-            })
-        });
-}
+//     bencher
+//         .with_inputs(|| benchmark.setup_iteration())
+//         .bench_local_values(|db| {
+//             thread_pool.install(|| {
+//                 check_project(&db, benchmark.max_diagnostics);
+//                 db
+//             })
+//         });
+// }
 
 fn main() {
     ThreadPoolBuilder::new()
