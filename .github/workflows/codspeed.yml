@@ -38,7 +38,7 @@ jobs:
         # uses: taiki-e/install-action@d12e869b89167df346dd0ff65da342d1fb1202fb # v2.53.2
         # with:
         #   tool: cargo-codspeed
-        run: cargo install --git https://github.com/CodspeedHQ/codspeed-rust.git --branch cod-1044-fix-divan-walltime-metric
+        run: cargo install --git https://github.com/CodspeedHQ/codspeed-rust.git
 
       - name: "Build benchmarks"
         run: cargo codspeed build --features "codspeed,walltime" --no-default-features -p ruff_benchmark
