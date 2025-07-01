@@ -58,12 +58,10 @@ jobs:
 
       - name: "Install custom runner"
         run: |
-          git clone -b cod-1008-benchmark-run-fails-on-macro-runner-with-systemd-run https://github.com/CodSpeedHQ/runner/
-          cd runner
-          cargo install --path . -f --locked
+          cargo install --git https://github.com/CodSpeedHQ/runner/
 
       - name: "Run benchmarks"
         env:
-          CODSPEED_USE_PERF: 1
-          # CODSPEED_LOG: debug
+          CODSPEED_PERF_ENABLED: true
+        # CODSPEED_LOG: debug
         run: codspeed run --api-url https://7j3xul0pqk.execute-api.eu-west-1.amazonaws.com/dev/ --upload-url https://aiy2l19wii.execute-api.eu-west-1.amazonaws.com/upload -- cargo codspeed run
