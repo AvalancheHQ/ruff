@@ -60,7 +60,7 @@ jobs:
           cargo install --git https://github.com/CodSpeedHQ/runner/
 
       - name: "Run benchmarks"
-        env:
-          CODSPEED_PERF_ENABLED: true
+        # env:
+        #   CODSPEED_PERF_ENABLED: true
         # CODSPEED_LOG: debug
         run: codspeed run --api-url https://7j3xul0pqk.execute-api.eu-west-1.amazonaws.com/dev/ --upload-url https://aiy2l19wii.execute-api.eu-west-1.amazonaws.com/upload -- cargo codspeed run
