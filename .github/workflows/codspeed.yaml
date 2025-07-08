@@ -19,7 +19,7 @@ env:
 jobs:
   # Taken from ci.yml, minor modifications
   benchmarks-walltime:
-    runs-on: codspeed-macro-codspeed-matthias-dev
+    runs-on: codspeed-macro-staging
     env:
       TY_LOG: ruff_benchmark=debug
       CODSPEED_RUNNER_MODE: walltime
