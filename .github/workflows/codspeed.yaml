@@ -44,7 +44,7 @@ jobs:
         run: cargo codspeed build --features "codspeed,walltime" --no-default-features -p ruff_benchmark
 
       - name: "Run benchmarks staging"
-        uses: CodSpeedHQ/action@0010eb0ca6e89b80c88e8edaaa07cfe5f3e6664d # v3.5.0
+        uses: CodSpeedHQ/action@main
         env:
           CODSPEED_ENV: 1
           CODSPEED_LOG: debug
@@ -55,7 +55,7 @@ jobs:
           upload-url: ${{ secrets.STAGING_CODSPEED_UPLOAD_URL }}
 
       - name: "Run benchmarks prod"
-        uses: CodSpeedHQ/action@0010eb0ca6e89b80c88e8edaaa07cfe5f3e6664d # v3.5.0
+        uses: CodSpeedHQ/action@main
         env:
           CODSPEED_ENV: 1
           CODSPEED_LOG: debug
