@@ -48,7 +48,7 @@ jobs:
         env:
           CODSPEED_ENV: 1
           CODSPEED_LOG: debug
-          CODSPEED_PERF_ENABLED: 1
+          CODSPEED_PERF_ENABLED: true
         with:
           run: cargo codspeed run
           token: ${{ secrets.STAGING_CODSPEED_TOKEN }}
@@ -59,6 +59,6 @@ jobs:
         env:
           CODSPEED_ENV: 1
           CODSPEED_LOG: debug
-          CODSPEED_PERF_ENABLED: 1
+          CODSPEED_PERF_ENABLED: true
         with:
           run: cargo codspeed run
