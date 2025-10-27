@@ -54,6 +54,7 @@ jobs:
           mode: walltime
           token: ${{ secrets.DEV_GUILLAUME_CODSPEED_TOKEN }}
           upload-url: ${{ secrets.DEV_GUILLAUME_CODSPEED_UPLOAD_URL }}
+          runner-version: branch:feat/emit-perf-pipedata
 
       - name: "Run benchmarks prod"
         uses: CodSpeedHQ/action@main
