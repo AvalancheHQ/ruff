@@ -43,15 +43,15 @@ jobs:
       - name: "Build benchmarks"
         run: cargo codspeed build --features "codspeed,walltime" --no-default-features -p ruff_benchmark
 
-      # - name: "Run benchmarks"
-      #   uses: CodSpeedHQ/action@main
-      #   env:
-      #     CODSPEED_ENV: 1
-      #     CODSPEED_LOG: debug
-      #     CODSPEED_PERF_ENABLED: true
-      #   with:
-      #     run: cargo codspeed run
-      #     mode: walltime
-      #     token: ${{ secrets.DEV_GUILLAUME_CODSPEED_TOKEN }}
-      #     upload-url: ${{ secrets.DEV_GUILLAUME_CODSPEED_UPLOAD_URL }}
-      #     runner-version: branch:feat/emit-perf-pipedata
+      - name: "Run benchmarks"
+        uses: CodSpeedHQ/action@main
+        env:
+          CODSPEED_ENV: 1
+          CODSPEED_LOG: debug
+          CODSPEED_PERF_ENABLED: true
+        with:
+          run: cargo codspeed run
+          mode: walltime
+          token: ${{ secrets.DEV_GUILLAUME_CODSPEED_TOKEN }}
+          upload-url: ${{ secrets.DEV_GUILLAUME_CODSPEED_UPLOAD_URL }}
+          runner-version: branch:feat/emit-perf-pipedata
