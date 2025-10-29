@@ -49,6 +49,7 @@ jobs:
           CODSPEED_ENV: 1
           CODSPEED_LOG: debug
           CODSPEED_PERF_ENABLED: true
+          ACTIONS_RUNNER_DEBUG: true
         with:
           run: cargo codspeed run
           mode: walltime
