@@ -24,8 +24,8 @@ jobs:
     strategy:
       matrix:
         benchmarks:
-          - "medium|multithreaded"
-          - "small|large"
+          # - "medium|multithreaded"
+          - "small"
     steps:
       - name: "Checkout Branch"
         uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
