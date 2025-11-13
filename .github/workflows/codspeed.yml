@@ -24,8 +24,8 @@ jobs:
     strategy:
       matrix:
         benchmarks:
-          # - "medium|multithreaded"
-          - "small"
+          - "medium|multithreaded"
+          - "small|large"
     steps:
       - name: "Checkout Branch"
         uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
@@ -57,4 +57,4 @@ jobs:
           run: cargo codspeed run --bench ty_walltime "${{ matrix.benchmarks }}"
           token: ${{ secrets.DEV_GUILLAUME_CODSPEED_TOKEN }}
           upload-url: ${{ secrets.DEV_GUILLAUME_CODSPEED_UPLOAD_URL }}
-          # runner-version: branch:cod-1595-collect-more-data-with-perf
+          runner-version: branch:cod-1595-collect-more-data-with-perf
