@@ -57,3 +57,4 @@ jobs:
           run: cargo codspeed run --bench ty_walltime "${{ matrix.benchmarks }}"
           token: ${{ secrets.DEV_GUILLAUME_CODSPEED_TOKEN }}
           upload-url: ${{ secrets.DEV_GUILLAUME_CODSPEED_UPLOAD_URL }}
+          runner-version: branch:cod-1595-collect-more-data-with-perf
