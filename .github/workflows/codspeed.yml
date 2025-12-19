@@ -47,7 +47,7 @@ jobs:
         run: cargo codspeed build --features "codspeed,walltime" --no-default-features -p ruff_benchmark
 
       - name: "Run benchmarks"
-        uses: CodSpeedHQ/action@cod-1595-collect-more-data-with-perf
+        uses: CodSpeedHQ/action@main
         env:
           CODSPEED_ENV: 1
           CODSPEED_LOG: debug
