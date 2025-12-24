@@ -35,6 +35,21 @@ jobs:
       - uses: Swatinem/rust-cache@f13886b937689c021905a6b90929199931d60db1 # v2.8.1
       - uses: astral-sh/setup-uv@85856786d1ce8acfbcc2f13a5f3fbd6b938f9f41 # v7.1.2
 
+      - name: Build perf from source
+        run: |
+          export KERNEL_VERSION=$(uname -r | cut -d'-' -f1)
+          sudo apt-get update
+          sudo apt-get install -y build-essential flex bison libelf-dev libdw-dev libaudit-dev \
+            libslang2-dev libperl-dev libunwind-dev libzstd-dev zlib1g-dev liblzma-dev \
+            libnuma-dev libssl-dev libiberty-dev binutils-dev systemtap-sdt-dev \
+            libcap-dev libbabeltrace-dev python3-dev libtraceevent-dev
+          sudo apt-get install linux-source-${KERNEL_VERSION} -y
+          cd /usr/src
+          sudo tar xf linux-source-${KERNEL_VERSION}.tar.bz2
+          cd linux-source-${KERNEL_VERSION}/tools/perf
+          sudo make -j$(nproc)
+          sudo make prefix=/usr install
+
       - name: "Install Rust toolchain"
         run: rustup show
 
