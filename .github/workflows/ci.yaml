@@ -1145,15 +1145,7 @@ jobs:
 
   benchmarks-instrumented-ty-build:
     name: "benchmarks instrumented ty (build)"
-    runs-on: depot-ubuntu-24.04-4
-    needs: determine_changes
-    if: |
-      github.repository == 'astral-sh/ruff' &&
-      (
-        github.ref == 'refs/heads/main' ||
-        needs.determine_changes.outputs.ty == 'true' ||
-        needs.determine_changes.outputs.benchmarks == 'true'
-      )
+    runs-on: ubuntu-24.04
     timeout-minutes: 20
     steps:
       - name: "Checkout Branch"
