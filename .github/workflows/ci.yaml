@@ -1223,6 +1223,9 @@ jobs:
       - name: "Install memtrack source-build dependencies"
         run: sudo apt-get update && sudo apt-get install -y autopoint libelf-dev zlib1g-dev
 
+      - name: "Install rustfmt"
+        run: rustup component add rustfmt
+
       - name: "Install memtrack"
         uses: baptiste0928/cargo-install@8195d4f734a149db85385bb4102b42efcd373759
         with:
@@ -1345,6 +1348,9 @@ jobs:
 
       - name: "Install memtrack source-build dependencies"
         run: sudo apt-get update && sudo apt-get install -y autopoint libelf-dev zlib1g-dev
+
+      - name: "Install rustfmt"
+        run: rustup component add rustfmt
 
       - name: "Install memtrack"
         uses: baptiste0928/cargo-install@8195d4f734a149db85385bb4102b42efcd373759
