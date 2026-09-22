@@ -26,3 +26,7 @@ paths:
       # actionlint doesn't yet support the cache-mode feature.
       # The schema hook validates it.
       - '^unexpected key "cache-mode" for "workflow" section\.'
+  ".github/workflows/ci.yaml":
+    ignore:
+      # Most jobs are intentionally disabled for the memory-only CI experiment.
+      - '^constant expression "false" in condition\.'
