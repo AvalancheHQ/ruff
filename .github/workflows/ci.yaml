@@ -1221,7 +1221,7 @@ jobs:
         run: uv run --only-dev cargo codspeed build -m memory --features "codspeed,ruff_instrumented" --profile profiling --no-default-features -p ruff_benchmark --bench formatter --bench lexer --bench linter --bench parser
 
       - name: "Install memtrack source-build dependencies"
-        run: sudo apt-get update && sudo apt-get install -y gettext libelf-dev zlib1g-dev
+        run: sudo apt-get update && sudo apt-get install -y autopoint libelf-dev zlib1g-dev
 
       - name: "Install memtrack"
         uses: baptiste0928/cargo-install@8195d4f734a149db85385bb4102b42efcd373759
@@ -1344,7 +1344,7 @@ jobs:
         run: find target/codspeed -type f -exec chmod +x {} +
 
       - name: "Install memtrack source-build dependencies"
-        run: sudo apt-get update && sudo apt-get install -y gettext libelf-dev zlib1g-dev
+        run: sudo apt-get update && sudo apt-get install -y autopoint libelf-dev zlib1g-dev
 
       - name: "Install memtrack"
         uses: baptiste0928/cargo-install@8195d4f734a149db85385bb4102b42efcd373759
