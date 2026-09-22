@@ -1248,6 +1248,9 @@ jobs:
 
       - name: "Run benchmarks"
         uses: CodSpeedHQ/action@4296e51e7041e24dadb86d1d6e8b9320d223dbe8 # v5.0.3
+        env:
+          CODSPEED_EXPERIMENTAL_MEMORY_CAPTURE_STACK: "true"
+          CODSPEED_MEMTRACK_TRACK_PHYSICAL: "1"
         with:
           mode: memory
           run: uv run --only-dev cargo codspeed run
@@ -1374,6 +1377,8 @@ jobs:
 
       - name: "Run benchmarks"
         uses: CodSpeedHQ/action@4296e51e7041e24dadb86d1d6e8b9320d223dbe8 # v5.0.3
+        env:
+          CODSPEED_MEMTRACK_TRACK_PHYSICAL: "1"
         with:
           mode: memory
           run: uv run --only-dev cargo codspeed run --bench "${{ matrix.target }}" "${{ matrix.filter }}"
